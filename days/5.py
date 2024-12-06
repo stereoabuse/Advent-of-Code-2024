@@ -19,10 +19,26 @@ def validate_sequence(update):
             return False
     return True
 
-middle_pages = 0
+correct_middle_pages = 0
 for update in updates:
     if validate_sequence(update):
-        middle_pages += update[len(update)//2]
+        correct_middle_pages += update[len(update)//2]
 
-print(middle_pages)
+# part 1
+print(correct_middle_pages)
 
+
+incorrect_middle_pages = 0
+for update in updates:
+    if not validate_sequence(update):
+        cur = update.copy()
+        length = len(cur)
+        for pass_num in range(length):
+            for pos in range(length-1):
+                if cur[pos+1] in G[cur[pos]]:
+                    cur[pos], cur[pos+1] = cur[pos+1], cur[pos]
+        
+        incorrect_middle_pages += cur[len(cur)//2]
+
+# part 2
+print(incorrect_middle_pages)
