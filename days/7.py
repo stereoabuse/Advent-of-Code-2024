@@ -9,15 +9,28 @@ with open('days/inputs/7') as f:
 def integers(s):
     return [int(i) for i in re.split(r'\D+', s)]
 
+def con(x,y):
+    return int(str(x) + str(y))
 
-total = 0
+
+total_1, total_2 = 0, 0
 for row in input_text.splitlines():
     target, *sequence = integers(row)
+
     for operations in product([mul, add], repeat=len(sequence)-1):
         ops = cycle(operations)
         result = reduce(lambda x, y: next(ops)(x,y), sequence)
         if result == target:
-            total += result
+            total_1 += result
             break
-# part 1
-print(total)
+
+    for operations in product([mul, add, con], repeat=len(sequence)-1):
+        ops = cycle(operations)
+        result = reduce(lambda x, y: next(ops)(x,y), sequence)
+        if result == target:
+            total_2 += result
+            break
+
+print(total_1)
+
+print(total_2)
