@@ -33,7 +33,7 @@ for update in updates:
     if not validate_sequence(update):
         cur = update.copy()
         length = len(cur)
-        for pass_num in range(length):
+        for _ in range(length):
             for pos in range(length-1):
                 if cur[pos+1] in G[cur[pos]]:
                     cur[pos], cur[pos+1] = cur[pos+1], cur[pos]
