@@ -23,20 +23,20 @@ for pos in grid_dict:
 print(xmases)
 
 
-x_shape = {1+1j: 'M', -1-1j: 'S', 1-1j:'S', -1+1j:'M'}
-x_shape_reverse = {1+1j: 'S', -1-1j: 'M', 1-1j:'M', -1+1j:'S'}
+x = {1+1j: 'M', -1-1j: 'S', 1-1j:'S', -1+1j:'M'}
+x_rev = {1+1j: 'S', -1-1j: 'M', 1-1j:'M', -1+1j:'S'}
 
 cross_count = 0
 grid_positions = list(grid_dict.keys())
 for position in grid_positions:
     if grid_dict[position] == 'A':
-        diagonal1_matches = all(grid_dict.get(position + d) == x_shape[d] for d in [1+1j, -1-1j])
-        diagonal1_matches_flipped = all(grid_dict.get(position + d) == x_shape_reverse[d] for d in [1+1j, -1-1j])
+        diag1 = all(grid_dict.get(position + d) == x[d] for d in [1+1j, -1-1j])
+        diag1_flip = all(grid_dict.get(position + d) == x_rev[d] for d in [1+1j, -1-1j])
         
-        diagonal2_matches = all(grid_dict.get(position + d) == x_shape[d] for d in [1-1j, -1+1j])
-        diagonal2_matches_flipped = all(grid_dict.get(position + d) == x_shape_reverse[d] for d in [1-1j, -1+1j])
+        diag2 = all(grid_dict.get(position + d) == x[d] for d in [1-1j, -1+1j])
+        diag2_flip = all(grid_dict.get(position + d) == x_rev[d] for d in [1-1j, -1+1j])
         
-        if (diagonal1_matches or diagonal1_matches_flipped) and (diagonal2_matches or diagonal2_matches_flipped):
+        if (diag1 or diag1_flip) and (diag2 or diag2_flip):
             cross_count += 1
 
 # part 2
