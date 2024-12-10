@@ -1,7 +1,6 @@
 with open('days/inputs/9') as f:
     input_text = f.read()
 
-# input_text = '''2333133121414131402'''
 
 positions = []
 group_id = 0

@@ -1,19 +1,8 @@
 from itertools import cycle
 from collections import defaultdict
 
-input_text = '''....#.....
-.........#
-..........
-..#.......
-.......#..
-..........
-.#..^.....
-........#.
-#.........
-......#...'''
-
-# with open('days/inputs/6') as f:
-#     input_text = f.read()
+with open('days/inputs/6') as f:
+    input_text = f.read()
 
 G = {(r, c): char for r, line in enumerate(input_text.splitlines()) for c, char in enumerate(line)}
 
