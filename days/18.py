@@ -10,6 +10,11 @@ G = nx.grid_2d_graph(71,71)
 for i, (x, y) in enumerate(data):
     G.remove_node((x,y))
     if i == BYTES:
+        # part 1
+        print('p1 answer', len(nx.shortest_path(G, (0,0), (70,70))) -1)
+    try:
+        nx.shortest_path(G, (0,0), (70,70))
+    except nx.NetworkXNoPath:
+        # part 2
+        print(f'{x},{y}')
         break
-
-print(len(nx.shortest_path(G, (0,0), (70,70))) -1)
