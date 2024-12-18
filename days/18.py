@@ -11,9 +11,9 @@ for i, (x, y) in enumerate(data):
     G.remove_node((x,y))
     if i == BYTES:
         # part 1
-        print('p1 answer', len(nx.shortest_path(G, (0,0), (70,70))) -1)
+        print('p1 answer', nx.shortest_path_length(G, (0,0), (70,70)))
     try:
-        nx.shortest_path(G, (0,0), (70,70))
+        nx.shortest_path_length(G, (0,0), (70,70))
     except nx.NetworkXNoPath:
         # part 2
         print(f'{x},{y}')
