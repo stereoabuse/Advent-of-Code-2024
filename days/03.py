@@ -12,8 +12,4 @@ print(calculate_multiplications(input_text))
 
 # part 2
 allowed_sections = re.split(r"don't\(\).*?(?=do\(\))", input_text, flags=re.DOTALL)
-total_sum = 0
-for section in allowed_sections:
-    total_sum += calculate_multiplications(section)
-
-print(total_sum)
+print(sum(calculate_multiplications(section) for section in allowed_sections))

@@ -17,11 +17,5 @@ for (loc1, loc2) in zip(group1_locations, group2_locations):
 # part 1
 print(total_distance)
 
-# part 2
-similarity_score = 0
-group2_counts = Counter(group2_locations)
-
-for location in group1_locations:
-    similarity_score += location * group2_counts[location]
-
-print(similarity_score)
+#part 2
+print(sum(location * Counter(group2_locations)[location] for location in group1_locations))

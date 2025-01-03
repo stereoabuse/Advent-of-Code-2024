@@ -36,8 +36,4 @@ for i, location in enumerate(data_basic):
 MAX = max(ans)
 c = Counter(MAX - a for a in ans)
 
-total = 0
-for k,v in c.items():
-    if 100 <= k:
-        total += v
-print(total) # insanely slow
+print(sum(v for k,v in c.items() if 100 <= k)) # insanely slow

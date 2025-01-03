@@ -13,8 +13,6 @@ start = next(pos for pos, char in grid.items() if char == 'S')
 queue = [(0, start, (1,0))]
 seen = {(start, (1,0))}
 
-
-
 while queue:
     cost, pos, direction = heapq.heappop(queue)
     seen.add((pos, direction))

@@ -24,8 +24,5 @@ while left_pointer < right_pointer:
     else:
         left_pointer += 1
 
-checksum = 0
-for position, marker in enumerate(positions):
-    if marker != '.':
-        checksum += position * int(marker)
-print(checksum)
+
+print(sum(pos * int(mark) for pos, mark in enumerate(positions) if mark != '.'))
